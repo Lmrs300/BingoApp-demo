@@ -75,5 +75,6 @@ button {
     cursor: not-allowed;
     box-shadow: none;
     transform: translateY(3px);
+    scale: 1;
   }
 }
