@@ -1,0 +1,47 @@
+<div
+  id="confModal"
+  class="modal"
+  [ngStyle]="{
+    opacity: openConfModal ? '1' : '0',
+    visibility: openConfModal ? 'visible' : 'hidden'
+  }"
+>
+  <form (ngSubmit)="saveConf(form)" #form="ngForm">
+    <img class="x_out" src="./icons/xmark-white.svg" (click)="closeModal()" />
+
+    <div class="formField">
+      <span class="spanConf">Cantidad de cartones:</span>
+      <app-input-range
+        [name]="'cantCartones'"
+        [value]="gameConf.cantCartones"
+        [min]="10"
+        [max]="500"
+        (newCant)="changeCant($event)"
+      ></app-input-range>
+    </div>
+
+    <div class="formField">
+      <span class="spanConf">Elige tus cartones:</span>
+      <div class="cont_cartones">
+        <div class="cont_check" *ngFor="let carton of cartones">
+          <label [for]="carton.numCarton">Cartón #{{ carton.numCarton }}</label>
+          <input
+            type="checkbox"
+            [id]="carton.numCarton"
+            [name]="'carton-#' + carton.numCarton"
+            [checked]="carton.isPlayerCarton"
+            [(ngModel)]="carton.isPlayerCarton"
+            (click)="verifyCheck($event, carton)"
+          />
+        </div>
+      </div>
+    </div>
+
+    <p *ngIf="isError" style="margin-top: -20px; margin-bottom: -10px">
+      Debe seleccionar al menos un cartón
+    </p>
+
+    <input id="saveConf" type="submit" value="Comenzar" [disabled]="" />
+  </form>
+</div>
+<!-- (valueChange)="valueChange($event)" -->

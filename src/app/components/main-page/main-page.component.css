@@ -1,0 +1,47 @@
+#main {
+  width: 100%;
+  height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin-block: 10px;
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:nth-of-type(1) {
+  margin-block: 20px;
+}
+
+#main_menu_cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+button {
+  background-color: var(--primary-color);
+  border: 5px solid var(--secondary-color);
+  color: white;
+  padding: 10px 50px 20px 50px;
+  border-radius: 40px;
+  outline: none;
+  cursor: pointer;
+  font-size: 2.5em;
+  font-weight: bold;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    scale: 1.05;
+  }
+  &:active {
+    scale: 0.9;
+  }
+}

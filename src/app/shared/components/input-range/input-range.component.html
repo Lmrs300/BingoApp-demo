@@ -1,0 +1,24 @@
+<div class="contInputRange">
+  <div class="sliderCurrentValue">
+    <span
+      [ngClass]="{ show: showCurrentValue }"
+      [ngStyle]="{ left: value / 2 + 'px' }"
+      >{{ value }}</span
+    >
+  </div>
+
+  <div class="field">
+    <span class="value left">{{ min }}</span>
+    <input
+      [(ngModel)]="value"
+      [name]="name"
+      type="range"
+      [min]="min"
+      [max]="max"
+      (mousedown)="showCurrentValue = true"
+      (mouseup)="changeCant()"
+      (blur)="showCurrentValue = false"
+    />
+    <span class="value right">{{ max }}</span>
+  </div>
+</div>

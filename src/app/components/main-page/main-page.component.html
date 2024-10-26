@@ -1,0 +1,18 @@
+<div id="main">
+  <div id="main_menu_cont">
+    <img class="logo" src="./imgs/bingo-logo.png" width="400" height="170" />
+    <a routerLink="/partida"
+      ><button type="button" id="play_btn" (click)="openConfModal = true">
+        Jugar
+      </button></a
+    >
+
+    <h2>Creado por Luis Romero. C.I: 29.850.292</h2>
+    <h2>Sección 1. Trayecto 4</h2>
+
+    <app-conf-modal
+      [openConfModal]="openConfModal"
+      (closeConfModal)="openConfModal = false"
+    ></app-conf-modal>
+  </div>
+</div>

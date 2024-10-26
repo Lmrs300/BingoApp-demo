@@ -1,0 +1,15 @@
+<nav>
+  <a routerLink="/" (click)="cartonesService.gameOver()"
+    ><img src="./icons/arrow-left.svg" id="volver"
+  /></a>
+
+  <div id="ad_panel">{{ cartonesService.ad }}</div>
+
+  <div></div>
+</nav>
+
+<div id="grid_cont">
+  <app-cartones id="cartones_cont" />
+  <app-random-ball id="random_ball_cont" />
+  <app-carton-princ id="carton_princ_cont" />
+</div>

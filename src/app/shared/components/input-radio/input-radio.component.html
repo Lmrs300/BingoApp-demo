@@ -1,0 +1,11 @@
+<label [for]="idRadio" (click)="changeRadio()"
+  ><span class="radio_name">{{ visibleName }}</span
+  ><input
+    type="radio"
+    [name]="name"
+    [value]="value"
+    [id]="idRadio"
+    [checked]="checked"
+  />
+  <span class="radio_span"></span>
+</label>

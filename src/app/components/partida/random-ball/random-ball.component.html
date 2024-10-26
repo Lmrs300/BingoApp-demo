@@ -1,0 +1,72 @@
+<div id="random_ball">
+  <div id="ball_slider">
+    <div
+      id="slider"
+      [ngStyle]="{
+        animationPlayState: isSlide == true ? 'paused' : 'paused',
+        marginTop: sliderValCount + 'px'
+      }"
+    >
+      <div
+        class="cont_ball"
+        *ngFor="let ball of cartonesService.bingoColumns[0]"
+      >
+        <div class="ball">
+          <h2 class="letter" style="color: var(--B-color)">B</h2>
+          <h2 class="number">{{ ball }}</h2>
+        </div>
+      </div>
+
+      <div
+        class="cont_ball"
+        *ngFor="let ball of cartonesService.bingoColumns[1]"
+      >
+        <div class="ball">
+          <h2 class="letter" style="color: var(--I-color)">I</h2>
+          <h2 class="number">{{ ball }}</h2>
+        </div>
+      </div>
+
+      <div
+        class="cont_ball"
+        *ngFor="let ball of cartonesService.bingoColumns[2]"
+      >
+        <div class="ball">
+          <h2 class="letter" style="color: var(--N-color)">N</h2>
+          <h2 class="number">{{ ball }}</h2>
+        </div>
+      </div>
+
+      <div
+        class="cont_ball"
+        *ngFor="let ball of cartonesService.bingoColumns[3]"
+      >
+        <div class="ball">
+          <h2 class="letter" style="color: var(--G-color)">G</h2>
+          <h2 class="number">{{ ball }}</h2>
+        </div>
+      </div>
+
+      <div
+        class="cont_ball"
+        *ngFor="let ball of cartonesService.bingoColumns[4]"
+      >
+        <div class="ball">
+          <h2 class="letter" style="color: var(--O-color)">O</h2>
+          <h2 class="number">{{ ball }}</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cont_slide_btn">
+    <button
+      class="slide_btn"
+      (click)="getBall()"
+      #slideBtn
+      [disabled]="cartonesService.conf.isGameActive == false"
+    >
+      Girar
+    </button>
+  </div>
+</div>

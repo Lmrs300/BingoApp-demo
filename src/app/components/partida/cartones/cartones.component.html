@@ -1,0 +1,108 @@
+<header>
+  <ul id="filter">
+    <li>
+      <app-input-radio
+        idRadio="todos_radio"
+        visibleName="Todos"
+        name="viewCartonMode"
+        value="todos"
+        [checked]="true"
+        (changeRadioValue)="filter = false"
+      />
+    </li>
+    <li>
+      <app-input-radio
+        idRadio="mis_cartones_radio"
+        visibleName="Mis cartones"
+        name="viewCartonMode"
+        value="mis_cartones"
+        [checked]="false"
+        (changeRadioValue)="filter = true"
+      />
+    </li>
+  </ul>
+</header>
+
+<div
+  id="cont_cartones"
+  [ngStyle]="{ display: filter == false ? 'flex' : 'none' }"
+>
+  <table *ngFor="let carton of cartones">
+    <caption>
+      Cartón #{{
+        carton.idCarton.toString() +
+          (carton.isPlayerCarton == true ? " (Mío)" : "")
+      }}
+    </caption>
+    <thead>
+      <th style="color: var(--B-color)">B</th>
+      <th style="color: var(--I-color)">I</th>
+      <th style="color: var(--N-color)">N</th>
+      <th style="color: var(--G-color)">G</th>
+      <th style="color: var(--O-color)">O</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let nums of carton.cartonNums">
+        <td
+          *ngFor="let num of nums"
+          [id]="num"
+          [ngClass]="{
+            mark: !cartonesService.remainingBalls.includes(num) || num == 0,
+            winMark:
+              carton.isWinner == true && carton.winnerNumbers.includes(num)
+          }"
+        >
+          <ng-container *ngIf="num != 0; else elseBlock">
+            {{ num }}
+          </ng-container>
+
+          <ng-template #elseBlock>
+            <img class="star" src="./imgs/star.png" />
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div
+  id="cont_cartones"
+  [ngStyle]="{ display: filter == true ? 'flex' : 'none' }"
+>
+  <table *ngFor="let carton of cartonesService.playerCartones">
+    <caption>
+      Cartón #{{
+        carton.idCarton.toString() +
+          (carton.isPlayerCarton == true ? " (Mío)" : "")
+      }}
+    </caption>
+    <thead>
+      <th style="color: var(--B-color)">B</th>
+      <th style="color: var(--I-color)">I</th>
+      <th style="color: var(--N-color)">N</th>
+      <th style="color: var(--G-color)">G</th>
+      <th style="color: var(--O-color)">O</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let nums of carton.cartonNums">
+        <td
+          *ngFor="let num of nums"
+          [id]="num"
+          [ngClass]="{
+            mark: !cartonesService.remainingBalls.includes(num) || num == 0,
+            winMark:
+              carton.isWinner == true && carton.winnerNumbers.includes(num)
+          }"
+        >
+          <ng-container *ngIf="num != 0; else elseBlock">
+            {{ num }}
+          </ng-container>
+
+          <ng-template #elseBlock>
+            <img class="star" src="./imgs/star.png" />
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

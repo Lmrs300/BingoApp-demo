@@ -1,0 +1,68 @@
+header {
+  width: 100%;
+  height: 10%;
+  background-color: var(--secondary-color);
+  border-radius: 10px 10px 0px 0px;
+  align-content: center;
+
+  #filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: white;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+#cont_cartones {
+  width: 98%;
+  height: 88%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+
+  margin: 10px 0px 0px 10px;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: white;
+  font-weight: bold;
+  font-size: 1.2em;
+  user-select: none;
+}
+td,
+th {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+th {
+  border-bottom: 3px solid black;
+}
+
+td.mark {
+  background-color: var(--complementary-color-a);
+  color: white;
+}
+
+td.mark.winMark {
+  background-color: lime !important;
+  color: white;
+}
+
+.star {
+  width: 90%;
+  height: 90%;
+  position: relative;
+  top: 2px;
+}

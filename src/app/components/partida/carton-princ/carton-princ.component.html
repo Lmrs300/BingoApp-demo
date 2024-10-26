@@ -1,0 +1,22 @@
+<div id="carton_princ">
+  <table>
+    <thead>
+      <th style="color: var(--B-color)">B</th>
+      <th style="color: var(--I-color)">I</th>
+      <th style="color: var(--N-color)">N</th>
+      <th style="color: var(--G-color)">G</th>
+      <th style="color: var(--O-color)">O</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of cartonesService.bingoColumns[0]">
+        <td
+          *ngFor="let num of cartonPrincNumbers[row - 1]"
+          [id]="num"
+          [ngClass]="{ mark: !cartonesService.remainingBalls.includes(num) }"
+        >
+          {{ num }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
